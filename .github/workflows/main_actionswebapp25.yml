@@ -9,6 +9,10 @@ on:
       - main
   workflow_dispatch:
 
+defaults:
+  run:
+    working-directory: /API/Stats/Stats.API
+
 jobs:
   build:
     runs-on: windows-latest
