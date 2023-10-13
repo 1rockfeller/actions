@@ -11,6 +11,9 @@ namespace Stats.API.Profiles
             CreateMap<SundayDataDto,SundayData>()
                 .ReverseMap();
 
+            CreateMap<PlatformDto, Platform>()
+                .ReverseMap();
+
             //CreateMap<SundayDataDto, SundayData>()
             //    .ForMember(dest => dest.SundayDataId,
             //        opt => opt.MapFrom(src => src.SundayDataId));
