@@ -34,9 +34,31 @@ namespace Stats.API.Controllers
             {
                 return NotFound();
             }
-            var result = await _context.SundayDatas.ToListAsync();
+            //var result = await _context.SundayDatas.Where(i=>i.IsDeleted == true).GroupBy(i=>i.SundayDataDate).ToListAsync();
+            //var groupByDateQuery =
+            //    from data in _context.SundayDatas
+            //    group data by data.SundayDataDate into groupDay
+            //    //orderby groupDay.Key descending 
+            //    select groupDay;
 
-            return _mapper.Map<List<SundayDataDto>>(result);
+            var results = _context.SundayDatas.GroupBy(p=>p.SundayDataDate).ToList();
+                //(key, g) => new { SundayDataDate = key, Cars = g.ToList() });
+
+            List<SundayDataDto> listToReturn = new List<SundayDataDto>();
+            foreach (var nameGroup in results)
+            {
+                var item = new SundayDataDto();
+                item.SundayDataDate = nameGroup.Key;
+                var total = 0;
+                Console.WriteLine($"Key: {nameGroup.Key}");
+                foreach (var grp in nameGroup)
+                {
+                    total += grp.Total;
+                }
+                item.Total = total;
+                listToReturn.Add(item);
+            }
+            return _mapper.Map<List<SundayDataDto>>(listToReturn);
         }
 
         // GET: api/SundayData/5
