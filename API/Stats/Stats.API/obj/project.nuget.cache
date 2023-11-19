@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Zjz4buqOCC/NwbLifcFFPD07wY8zKdLjF6g3WZN9/B0e1pAdzqpXc9MrRjb3pu8aI9gLcX2uf+qncIgvqxF1UA==",
+  "dgSpecHash": "7aF4PfcSo5XFIp0KZJ7Lu4A1PLc93FpIgNn3SQWsIhGCXOg4g8qVoww/wrGtC0+QotcEqtixTziRaAab0G/wrA==",
   "success": true,
   "projectFilePath": "C:\\Users\\rockf\\source\\repos\\actions\\API\\Stats\\Stats.API\\Stats.API.csproj",
   "expectedPackageFiles": [
@@ -111,6 +111,7 @@
     "C:\\Users\\rockf\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\rockf\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\rockf\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
+    "C:\\Users\\rockf\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\rockf\\.nuget\\packages\\microsoft.visualstudio.debugger.contracts\\17.2.0\\microsoft.visualstudio.debugger.contracts.17.2.0.nupkg.sha512",
     "C:\\Users\\rockf\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\6.0.16\\microsoft.visualstudio.web.codegeneration.6.0.16.nupkg.sha512",
     "C:\\Users\\rockf\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\6.0.16\\microsoft.visualstudio.web.codegeneration.core.6.0.16.nupkg.sha512",

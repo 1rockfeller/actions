@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -56,6 +57,52 @@ namespace Stats.API.Controllers
                     total += grp.Total;
                 }
                 item.Total = total;
+                listToReturn.Add(item);
+            }
+            return _mapper.Map<List<SundayDataDto>>(listToReturn);
+        }
+
+        // GET: api/SundayData
+        [HttpGet("/api/SundayData/date/{date}")]
+        public async Task<ActionResult<IEnumerable<SundayDataDto>>> GetSundayDatas(DateTime date)
+        {
+            if (_context.SundayDatas == null)
+            {
+                return NotFound();
+            }
+            //var result = await _context.SundayDatas.Where(i=>i.IsDeleted == true).GroupBy(i=>i.SundayDataDate).ToListAsync();
+            //var groupByDateQuery =
+            //    from data in _context.SundayDatas
+            //    group data by data.SundayDataDate into groupDay
+            //    //orderby groupDay.Key descending 
+            //    select groupDay;
+
+            //var results = _context.SundayDatas
+            //    .Where(p => p.SundayDataDate == date).ToList();
+
+            var results = from sunday in _context.SundayDatas
+                        join platform in _context.Platforms on sunday.PlatformId equals platform.PlatformId
+                        where sunday.SundayDataDate == date && sunday.IsDeleted == false
+                        select new { 
+                            PlatformID = platform.PlatformId,
+                            PlatformName = platform.Name,
+                            SundayDataId = sunday.SundayDataId,
+                            SundayDataDate = sunday.SundayDataDate,
+                            Total = sunday.Total
+                        };
+
+            //(key, g) => new { SundayDataDate = key, Cars = g.ToList() });
+
+            List<SundayDataDto> listToReturn = new List<SundayDataDto>();
+            foreach (var result in results)
+            {
+                var item = new SundayDataDto();
+                item.SundayDataDate = result.SundayDataDate;
+                item.Total = result.Total;
+                item.PlatformId = result.PlatformID;
+                item.PlatformName = result.PlatformName;
+                item.SundayDataId = result.SundayDataId;
+                
                 listToReturn.Add(item);
             }
             return _mapper.Map<List<SundayDataDto>>(listToReturn);
