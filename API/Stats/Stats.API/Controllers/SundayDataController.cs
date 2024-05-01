@@ -100,8 +100,7 @@ namespace Stats.API.Controllers
                 item.SundayDataDate = result.SundayDataDate;
                 item.Total = result.Total;
                 item.PlatformId = result.PlatformID;
-                item.PlatformName = result.PlatformName;
-                item.SundayDataId = result.SundayDataId;
+
                 
                 listToReturn.Add(item);
             }
